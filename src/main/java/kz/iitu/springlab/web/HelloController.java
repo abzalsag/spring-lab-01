@@ -42,3 +42,5 @@ public class HelloController {
             int cpuCores
     ) {}
 }
+
+// Laboratory Work No. 1 - completed
