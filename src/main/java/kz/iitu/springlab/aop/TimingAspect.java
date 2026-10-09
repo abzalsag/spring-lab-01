@@ -19,7 +19,7 @@ public class TimingAspect {
     public Object measure(ProceedingJoinPoint pjp) throws Throwable {
         long started = System.nanoTime();
         try {
-            return pjp.proceed(); // мақсатты әдісті орындайды
+            return pjp.proceed();
         } finally {
             long ms = (System.nanoTime() - started) / 1_000_000;
             String name = pjp.getSignature().toShortString();

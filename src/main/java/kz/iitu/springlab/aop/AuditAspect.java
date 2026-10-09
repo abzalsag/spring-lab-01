@@ -22,12 +22,12 @@ public class AuditAspect {
         log.info("AUDIT START: action='{}'", actionName);
 
         try {
-            Object result = pjp.proceed(); // Әдісті орындау
+            Object result = pjp.proceed();
             log.info("AUDIT SUCCESS: action='{}'", actionName);
             return result;
         } catch (Throwable ex) {
             log.error("AUDIT FAILURE: action='{}', error={}", actionName, ex.getMessage());
-            throw ex; // Қателік жұтылып кетпеуі үшін қайта лақтырамыз
+            throw ex;
         }
     }
 }
