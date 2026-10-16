@@ -39,7 +39,7 @@ public class BookService {
         return Optional.of(repository.save(new Book(id, book.title(), book.author(), book.year())));
     }
 
-    // 7-нұсқа
+
     public List<Book> createAll(List<Book> books) {
         return books.stream().map(this::create).toList();
     }
