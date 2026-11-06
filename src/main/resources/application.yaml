@@ -1,6 +1,19 @@
 spring:
   application:
     name: spring-lab-01
+  datasource:
+    url: jdbc:h2:mem:txlab;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+  flyway:
+    enabled: true
 
 server:
   port: 8080
@@ -24,6 +37,7 @@ logging:
   level:
     web: INFO
     kz.iitu: INFO
+    org.springframework.transaction.interceptor: TRACE
 
 management:
   endpoints:
