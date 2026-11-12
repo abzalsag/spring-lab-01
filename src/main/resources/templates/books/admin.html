@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<h1>Administration</h1>
+
+<h2>app_user</h2>
+<!-- password_hash tek oqu zhobasynda korsetilip tur; real zhobada ondai istemeidi -->
+<table>
+    <tr><th>ID</th><th>Username</th><th>Enabled</th><th>Roles</th><th>password_hash</th></tr>
+    <tr th:each="u : ${users}">
+        <td th:text="${u.id}">1</td>
+        <td th:text="${u.username}">user</td>
+        <td th:text="${u.enabled}">true</td>
+        <td th:text="${u.roles}">[USER]</td>
+        <td th:text="${u.passwordHash}">$2a$10$...</td>
+    </tr>
+</table>
+
+<h2>persistent_logins (remember-me)</h2>
+<table>
+    <tr><th>Username</th><th>Series</th><th>Last used</th></tr>
+    <tr th:each="t : ${tokens}">
+        <td th:text="${t.username}">admin</td>
+        <td th:text="${t.series}">series</td>
+        <td th:text="${t.last_used}">2026-11-12</td>
+    </tr>
+</table>
+
+<p><a th:href="@{/books}">Back to catalogue</a></p>
+</body>
+</html>
