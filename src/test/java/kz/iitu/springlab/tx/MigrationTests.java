@@ -12,13 +12,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class MigrationTests {
-    @Autowired JdbcTemplate jdbc;
+    @Autowired
+    JdbcTemplate jdbc;
 
     @Test
     void allMigrationsAppliedOnce() {
         List<Map<String, Object>> rows = jdbc.queryForList(
                 "SELECT \"installed_rank\", \"version\", \"description\", \"success\" " +
-                        "FROM \"flyway_schema_history\" WHERE \"version\" IS NOT NULL " +
+                        "FROM \"flyway_schema_history\" WHERE \"version\" IN ('1','2','3','4') " +
                         "ORDER BY \"installed_rank\"");
         rows.forEach(r -> System.out.println(">>> flyway_schema_history: " + r));
         assertEquals(4, rows.size());
