@@ -50,14 +50,7 @@
 | **5** | 🌐 Spring MVC | REST + MVC контроллеры, модель → Thymeleaf, статика, Post/Redirect/Get, статусы HTTP | ✅ |
 | **6** | ⏳ _Скоро_ | В разработке | 🕐 |
 
-## 🗺 Roadmap
 
-- [x] ЛР 1: Первый Spring Boot
-- [x] ЛР 2: IoC-контейнер
-- [x] ЛР 3: Конфигурация
-- [x] ЛР 4: Spring AOP
-- [x] ЛР 5: Spring MVC
-- [ ] ЛР 6: _будет добавлено_
 
 ## 🚀 Запуск
 
