@@ -1,4 +1,3 @@
-
 package kz.iitu.springlab.security;
 
 import org.springframework.context.annotation.Bean;
@@ -47,6 +46,7 @@ public class SecurityConfiguration {
                 )
 
                 .formLogin(form -> form
+                        .defaultSuccessUrl("/books", true)
                         .permitAll()
                 )
 
@@ -58,7 +58,7 @@ public class SecurityConfiguration {
                 )
 
                 .logout(logout -> logout
-                        .logoutSuccessUrl("/?logout")
+                        .logoutSuccessUrl("/login?logout")
                         .permitAll()
                 );
 

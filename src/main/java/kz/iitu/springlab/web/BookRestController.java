@@ -1,5 +1,6 @@
 package kz.iitu.springlab.web;
 
+import jakarta.validation.Valid;
 import kz.iitu.springlab.catalog.Book;
 import kz.iitu.springlab.catalog.BookService;
 import org.springframework.http.HttpStatus;
@@ -33,13 +34,12 @@ public class BookRestController {
     }
 
     @PostMapping
-    public ResponseEntity<Book> create(@RequestBody Book book) {
+    public ResponseEntity<Book> create(@Valid @RequestBody Book book) {
         Book saved = service.create(book);
         return ResponseEntity
                 .created(URI.create("/api/books/" + saved.id()))
                 .body(saved);
     }
-
 
     @PostMapping("/bulk")
     public ResponseEntity<List<Book>> createBulk(@RequestBody List<Book> books) {
@@ -48,7 +48,7 @@ public class BookRestController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Book> replace(@PathVariable long id, @RequestBody Book book) {
+    public ResponseEntity<Book> replace(@PathVariable long id, @Valid @RequestBody Book book) {
         return service.replace(id, book)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
